@@ -14,6 +14,10 @@ function Input() {
         e.target.name.value = '';
     };
 
+    const onDelete = () => {
+        setTodo([])
+    }
+
     return (
         <div>
             <form onSubmit={onSubmit}>
@@ -24,7 +28,7 @@ function Input() {
                             <li key={id}>{item}</li>
                         ))}
                     </ul>
-                    <Buttons />
+                    <Buttons onDelete={onDelete} />
                 </div>
             </form>
         </div>
