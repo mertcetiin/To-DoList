@@ -8,7 +8,7 @@ function Input() {
         e.preventDefault();
         const newTodo = e.target.name.value;
         if (newTodo !== '') {
-            setTodo([...todo, newTodo])
+            setTodo([...todo, capitalizeFirstLetter(newTodo)])
         }
         e.target.name.value = '';
     };
@@ -17,8 +17,12 @@ function Input() {
         setTodo([])
     }
 
+    const capitalizeFirstLetter = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    };
+
     return (
-        <div>
+        <div className="container">
             <form onSubmit={onSubmit}>
                 <input name="name" />
                 <div>
@@ -27,6 +31,8 @@ function Input() {
                             <li key={id}>{item}</li>
                         ))}
                     </ul>
+                </div>
+                <div className="buttons-container">
                     <button className="add" type='submit'>Add</button>
                     <button className="clear" onClick={onDelete}>Clear</button>
                 </div>
