@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Buttons from "./Buttons";
 
 function Input() {
 
@@ -28,7 +27,8 @@ function Input() {
                             <li key={id}>{item}</li>
                         ))}
                     </ul>
-                    <Buttons onDelete={onDelete} />
+                    <button className="add" type='submit'>Add</button>
+                    <button className="clear" onClick={onDelete}>Clear</button>
                 </div>
             </form>
         </div>
